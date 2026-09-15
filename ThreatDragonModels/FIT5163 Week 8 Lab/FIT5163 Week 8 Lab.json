@@ -5,7 +5,7 @@
   "summary": {
     "title": "FIT5163 Week 8 Lab",
     "owner": "yuchen li",
-    "description": "MediTrack lab threat model: patients, doctors and administrators use a Web/API server for appointments and medical records. Reminders use a third-party SMS provider. Includes TB1-TB5 and the 10 worked STRIDE threats from the supplied lab. Controls are proposals, not implemented assurances.",
+    "description": "MediTrack lab threat model: patients, doctors and administrators use a Web/API server for appointments and medical records. Reminders use a third-party SMS provider. Includes TB1-TB5 and the 10 worked STRIDE threats from the supplied lab. Controls are proposals, not implemented assurances. The supplied component-level threat list has been added. New priorities are TBD pending risk assessment; all new threats remain Open. Existing threat entries and diagram geometry are preserved.",
     "id": 0
   },
   "detail": {
@@ -31,7 +31,8 @@
             "attrs": {
               "body": {
                 "strokeWidth": 2,
-                "stroke": "#dc2626"
+                "stroke": "#dc2626",
+                "strokeDasharray": "10 5"
               },
               "label": {
                 "text": "TB2 - Database",
@@ -72,7 +73,8 @@
             "attrs": {
               "body": {
                 "strokeWidth": 2,
-                "stroke": "#dc2626"
+                "stroke": "#dc2626",
+                "strokeDasharray": "10 5"
               },
               "label": {
                 "text": "TB3 - Medical records",
@@ -113,7 +115,8 @@
             "attrs": {
               "body": {
                 "strokeWidth": 2,
-                "stroke": "#dc2626"
+                "stroke": "#dc2626",
+                "strokeDasharray": "10 5"
               },
               "label": {
                 "text": "TB4 - Third party",
@@ -395,8 +398,8 @@
               },
               "body": {
                 "fill": "#ffffff",
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -493,9 +496,44 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
-              "providesAuthentication": false
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "351c916d-8226-4637-abdd-c26996e35466",
+                  "title": "Patient impersonation using compromised credentials",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "欺骗",
+                  "description": "An attacker uses leaked or phished patient credentials to sign in as the patient and access personal records or appointment functions.",
+                  "mitigation": "Offer MFA, screen passwords against known compromised passwords, protect login transport and monitor suspicious sign-ins. Revoke compromised sessions and provide a secure account-recovery process.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "f8592c85-e7fd-41d0-b162-cabf5df7693d",
+                  "title": "Patient denies booking or cancelling an appointment",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "A patient denies creating or cancelling an appointment when the system lacks a trustworthy record of the authenticated request and outcome.",
+                  "mitigation": "Audit appointment creation and cancellation with actor, appointment ID, timestamp and outcome; retain protected change history and send confirmations without unnecessary sensitive data.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ],
+              "providesAuthentication": false,
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -627,12 +665,29 @@
                   "new": false,
                   "number": 12,
                   "score": "1"
+                },
+                {
+                  "id": "ac54df71-faa4-4719-9849-70f70febb788",
+                  "title": "Doctor denies viewing or modifying a medical record",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "A doctor denies accessing or changing a patient record. Without reliable audit evidence linking the authenticated doctor to the action, the organisation cannot establish who accessed or altered the record.",
+                  "mitigation": "Record the authenticated actor, record ID, action, timestamp, outcome and change version for each read/write. Protect audit logs against alteration and restrict access; avoid copying full health records into logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
                 }
               ],
               "providesAuthentication": false,
               "threatFrequency": {
                 "spoofing": 1,
-                "repudiation": 0
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
               }
             },
             "tools": {
@@ -660,8 +715,8 @@
               },
               "body": {
                 "fill": "#ffffff",
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -758,9 +813,44 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
-              "providesAuthentication": false
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "b4f9bea1-21ce-4043-95c6-f55e1ab44c77",
+                  "title": "Admin impersonation using stolen credentials",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "欺骗",
+                  "description": "An attacker steals an administrator credential and uses administrative functions to change accounts or schedules maliciously.",
+                  "mitigation": "Require MFA for administrators, separate administrative accounts, restrict privileged access, alert on unusual administrative logins and promptly revoke compromised credentials and sessions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "2a392098-680c-4596-af84-c9a8eb3f868e",
+                  "title": "Admin denies configuration or schedule changes",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "An administrator denies changing schedules or available system configuration, and missing audit records prevent attribution. Configuration changes apply only where such administrative functionality exists.",
+                  "mitigation": "Maintain tamper-protected audit logs of administrative changes, including actor, target, timestamp, before/after values and outcome. Require individual administrator accounts and review privileged activity.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
+              "providesAuthentication": false,
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -780,8 +870,8 @@
               },
               "body": {
                 "fill": "#eff6ff",
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -882,12 +972,99 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "be037319-fdda-43cd-bed5-84d1260fa5eb",
+                  "title": "Credential stuffing or brute-force login",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "欺骗",
+                  "description": "An attacker submits stolen credential pairs or repeated password guesses to the login endpoint to impersonate legitimate users.",
+                  "mitigation": "Use MFA, compromised-password screening, per-account and per-source rate limits, progressive delays and suspicious-login detection. Avoid unlimited lockouts that allow attackers to deny access to victims.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                },
+                {
+                  "id": "5154f19d-e8b1-4dcb-ae52-063d79479790",
+                  "title": "Session cookie manipulation enables session hijacking",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "篡改",
+                  "description": "An attacker alters a session identifier or client-controlled claims. If session validation fails to enforce integrity and a server-side identity binding, the modified cookie may be accepted as another user session.",
+                  "mitigation": "Use opaque unpredictable session IDs validated against trusted server-side state, or verify signed token integrity and claims. Reject modified or unknown identifiers, rotate tokens at login/privilege changes and set Secure, HttpOnly and appropriate SameSite cookie attributes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                },
+                {
+                  "id": "1f1b22a6-7541-47bd-b327-29a7d6d153f2",
+                  "title": "Authentication events lack an audit trail",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "Missing login and session-creation audit events prevent investigation or attribution of suspicious successful and failed authentication attempts.",
+                  "mitigation": "Log authentication successes/failures, session issuance/revocation, account identifier, timestamp and relevant source context. Protect and monitor logs; never record passwords or usable session tokens.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                },
+                {
+                  "id": "388a4d07-05a8-4397-82db-8ec6b422f9af",
+                  "title": "Login errors reveal whether an account exists",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "信息泄露",
+                  "description": "Different error messages, response codes or response timing disclose whether a username or email address is registered, enabling user enumeration.",
+                  "mitigation": "Return consistent public messages and response behaviour for invalid usernames and passwords. Reduce timing differences, rate-limit attempts and keep detailed diagnostics in protected internal logs.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "ac4e5aeb-dfcc-43e5-ba22-0a56222f29ea",
+                  "title": "Login request flooding exhausts authentication resources",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "拒绝服务",
+                  "description": "An attacker floods the login endpoint, exhausting password-hashing capacity, database connections or request workers and preventing legitimate sign-ins.",
+                  "mitigation": "Apply bounded request queues, per-account/per-source rate limits, global capacity limits, timeouts and monitoring. Limit concurrent password verification while preserving secure password hashing.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                },
+                {
+                  "id": "842a1600-a8bc-4363-b8de-f2740531c2d4",
+                  "title": "Untrusted role binding during session creation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "权限提升",
+                  "description": "The server trusts a client-supplied role or fails to verify the account-role relationship when creating a session, allowing a patient to receive doctor or administrator privileges.",
+                  "mitigation": "Derive roles from authoritative server-side account records, ignore client role claims, enforce least privilege and revalidate permissions after role changes. Rotate or revoke affected sessions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ],
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": true,
-              "privilegeLevel": "Server-side least privilege; per-request role and object checks required"
+              "privilegeLevel": "Server-side least privilege; per-request role and object checks required",
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -907,8 +1084,8 @@
               },
               "body": {
                 "fill": "#eff6ff",
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -1032,12 +1209,85 @@
                   "new": false,
                   "number": 8,
                   "score": ""
+                },
+                {
+                  "id": "e7fa7123-efaf-45a9-9858-823cc71e4b71",
+                  "title": "Unauthorised modification of another patient appointment",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "篡改",
+                  "description": "A user changes an appointment identifier or owner field and modifies or cancels another patient appointment when ownership checks are missing.",
+                  "mitigation": "Enforce object-level authorisation on every update/cancellation, bind appointment ownership server-side, allow-list editable fields and apply transaction/concurrency controls.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                },
+                {
+                  "id": "e75d8033-35dc-41da-a1af-b68085f88aa4",
+                  "title": "Record access and updates are not traceable",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "The application reads or writes clinical records without an auditable link between the authenticated user, target record and operation, preventing reliable investigation of disputed actions.",
+                  "mitigation": "Audit sensitive reads and all changes with actor, record ID, action, timestamp, outcome and version. Use append-only or tamper-evident storage with restricted access and monitored retention.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                },
+                {
+                  "id": "5ee7aaaa-865c-4829-b1ee-bca7e7ed5276",
+                  "title": "IDOR exposes another patient medical record",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "信息泄露",
+                  "description": "An attacker guesses or obtains another record ID and retrieves its contents because the endpoint does not verify ownership or the treating-clinician relationship. Predictable IDs aid discovery; missing authorisation causes the exposure.",
+                  "mitigation": "Check permission on each requested record and field server-side. Deny by default, restrict bulk access and minimise returned fields; unpredictable identifiers are only an additional defence.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                },
+                {
+                  "id": "afadc336-09db-4921-ba82-42d4a461957f",
+                  "title": "Abusive bulk queries exhaust application resources",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "拒绝服务",
+                  "description": "An attacker repeatedly requests large record or appointment result sets, consuming CPU, memory and database capacity and delaying legitimate requests.",
+                  "mitigation": "Enforce pagination, maximum page size, per-user query quotas, query timeouts and bounded concurrency. Restrict expensive filters and bulk export functions to authorised users.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                },
+                {
+                  "id": "cb90f52f-d055-4508-8e8c-9da673310b56",
+                  "title": "TB5 role or object checks are bypassed",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "权限提升",
+                  "description": "An attacker reaches a protected booking, clinical or administrative action through an endpoint or code path that omits the TB5 role/object permission check.",
+                  "mitigation": "Centralise authorisation and enforce it on every protected path. Verify roles and the specific object relationship server-side, deny unknown actions by default and validate negative permission cases.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
                 }
               ],
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": true,
-              "privilegeLevel": "Server-side least privilege; per-request role and object checks required"
+              "privilegeLevel": "Server-side least privilege; per-request role and object checks required",
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1056,13 +1306,13 @@
                 "text": "Patients +\nAppointments DB"
               },
               "topLine": {
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               },
               "bottomLine": {
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -1173,13 +1423,73 @@
                   "new": false,
                   "number": 4,
                   "score": ""
+                },
+                {
+                  "id": "14eb84af-0eec-4dc4-8ca3-1a7830ad9eac",
+                  "title": "Unauthorised direct database writes",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "篡改",
+                  "description": "An attacker with stolen database credentials or exposed database access bypasses the application and changes patient accounts or appointment data directly.",
+                  "mitigation": "Restrict database connectivity to approved services, apply least-privileged database roles, protect/rotate credentials and monitor privileged writes. Use integrity constraints, change monitoring and recoverable backups.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                },
+                {
+                  "id": "5b0a2aa0-3894-48fa-a56c-12498bc73ca6",
+                  "title": "Database operations lack audit evidence",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "Database changes cannot be attributed to a responsible service or administrator because database audit records are absent or editable by the same principal.",
+                  "mitigation": "Enable appropriate database audit logging and correlate service activity with application request IDs. Use individual privileged identities and forward protected logs to a separately controlled destination.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                },
+                {
+                  "id": "0fc9bd59-de67-40f9-8efc-5afaec5bcc63",
+                  "title": "Unencrypted data at rest exposes patient information",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "信息泄露",
+                  "description": "Unauthorised access to database files, storage snapshots or backups reveals patient and appointment information when data at rest is unencrypted.",
+                  "mitigation": "Encrypt database storage, snapshots and backups; manage keys separately with restricted access. Protect database credentials and hash passwords with a salted slow password KDF; encryption does not replace access control.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                },
+                {
+                  "id": "5f197ebf-b366-4a28-8f2e-eadffd23a9b9",
+                  "title": "Database connection pool exhaustion",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "拒绝服务",
+                  "description": "Slow or malicious requests occupy all available database connections, preventing legitimate account and appointment operations.",
+                  "mitigation": "Bound connection pools and request concurrency, set query/transaction timeouts, release connections reliably, optimise expensive queries and rate-limit abusive callers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
                 }
               ],
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": true,
-              "storesInventory": false
+              "storesInventory": false,
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1198,13 +1508,13 @@
                 "text": "Medical records\nstore"
               },
               "topLine": {
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               },
               "bottomLine": {
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -1301,13 +1611,61 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "9d9520a9-6274-4f08-9206-de08948c8dc6",
+                  "title": "Malicious changes to diagnoses or prescriptions",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "篡改",
+                  "description": "An unauthorised user or compromised service modifies diagnosis or prescription records, undermining clinical integrity and potentially affecting patient care.",
+                  "mitigation": "Enforce per-record and action-level authorisation, least-privileged write access, protected version history and tamper-evident audit trails. Validate changes and support controlled recovery.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": ""
+                },
+                {
+                  "id": "cb969434-5cc2-4812-9972-08645e002d15",
+                  "title": "Protected health information is disclosed",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "信息泄露",
+                  "description": "An attacker or unauthorised insider obtains sensitive health records through compromised storage access, exposed backups or excessive permissions.",
+                  "mitigation": "Restrict access by role and patient-care relationship, encrypt records and backups, isolate key management and monitor unusual reads/exports. Return only necessary fields and review access regularly.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "c1b92588-3567-49dc-abaa-1b20687a8698",
+                  "title": "Doctor denies issuing or changing a prescription",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "抵赖",
+                  "description": "A doctor denies issuing or editing a prescription and the record store lacks protected provenance and version history linking the change to an authenticated identity.",
+                  "mitigation": "Preserve attributable prescription versions and tamper-protected audit events with author, timestamp, action and outcome. Require reauthentication for sensitive signing actions where appropriate.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                }
+              ],
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
-              "storesInventory": false
+              "storesInventory": false,
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1327,8 +1685,8 @@
               },
               "body": {
                 "fill": "#ffffff",
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -1425,9 +1783,57 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
-              "providesAuthentication": false
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "d34d2057-b5f1-438a-a1aa-e56a973aa2f4",
+                  "title": "Patient phone numbers are exposed to a third party",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "信息泄露",
+                  "description": "Sending reminders exposes patient phone numbers and any included appointment information to the SMS provider, whose access, retention or onward disclosure may exceed the intended purpose.",
+                  "mitigation": "Send only the minimum recipient and reminder information; exclude diagnosis and clinical record content. Use TLS, agree retention/deletion and access requirements, and review provider handling.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                },
+                {
+                  "id": "94a83f9e-6cf8-4bfb-8840-85dc97b99507",
+                  "title": "Spoofed or hijacked SMS gateway sends phishing messages",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "欺骗",
+                  "description": "An attacker impersonates the SMS gateway or compromises its API credentials/account and sends messages that appear to originate from the healthcare service.",
+                  "mitigation": "Validate gateway TLS certificates and endpoint identity, protect and rotate API credentials, restrict provider permissions and monitor message destinations/content. Keep reminders free of requests for passwords or sensitive replies.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                },
+                {
+                  "id": "8bc66b1c-84cf-48a6-8ac3-f9d6ef83cd03",
+                  "title": "SMS provider outage prevents appointment reminders",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "拒绝服务",
+                  "description": "A third-party outage, API throttling or delivery failure prevents reminders from reaching patients even when the core booking service is available.",
+                  "mitigation": "Queue reminders with bounded retries/backoff, monitor delivery failures and use a circuit breaker. Provide an approved fallback communication channel where available and keep booking operations independent of SMS availability.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                }
+              ],
+              "providesAuthentication": false,
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1446,13 +1852,13 @@
                 "text": "Session store"
               },
               "topLine": {
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               },
               "bottomLine": {
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": ""
               }
             },
@@ -1549,13 +1955,61 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "0472b589-65ec-4af4-b49f-6f85b170a786",
+                  "title": "Session fixation persists an attacker-chosen identifier",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "篡改",
+                  "description": "An attacker arranges for a victim to use a session identifier known to the attacker. If login keeps that identifier and binds it to the victim, the attacker can reuse the authenticated session.",
+                  "mitigation": "Generate a new unpredictable session ID after login and privilege changes, invalidate the old ID, reject unissued identifiers and avoid accepting session IDs in URLs. Bind sessions to authoritative server-side identity state.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                },
+                {
+                  "id": "3c7dfcdc-5d9e-4c32-80df-be4a507a3e14",
+                  "title": "Compromised session storage enables mass impersonation",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "信息泄露",
+                  "description": "An attacker reads usable session identifiers or secrets from the session store and reuses them to impersonate many logged-in users.",
+                  "mitigation": "Isolate and restrict the session store, encrypt sensitive storage and transport, avoid retaining reusable raw tokens where a one-way token lookup is sufficient, enforce short lifetimes and support rapid bulk revocation.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                },
+                {
+                  "id": "3960085f-3856-491f-bcf4-a0c05305c119",
+                  "title": "Mass session creation exhausts session storage",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "拒绝服务",
+                  "description": "An attacker repeatedly creates sessions, filling the store or exhausting memory and preventing legitimate session creation or validation.",
+                  "mitigation": "Enforce session TTLs, automatic expiry cleanup, per-account/per-source creation limits and bounded storage capacity. Monitor growth and limit unnecessary anonymous sessions.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                }
+              ],
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": true,
-              "storesInventory": false
+              "storesInventory": false,
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1621,7 +2075,15 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "labels": [
               {
@@ -1708,7 +2170,15 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "labels": [
               {
@@ -1876,7 +2346,15 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": []
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             },
             "labels": [
               {
@@ -1960,7 +2438,15 @@
               ],
               "trustBoundaryIds": [
                 "27695fac-5105-455c-8d2f-1b1f46577584"
-              ]
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "labels": [
               {
@@ -2049,7 +2535,15 @@
               ],
               "trustBoundaryIds": [
                 "82fe8653-c6cd-4b91-8df5-27a80ed60382"
-              ]
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "labels": [
               {
@@ -2131,7 +2625,15 @@
               ],
               "trustBoundaryIds": [
                 "911160e6-0580-48c6-bee0-020389e39ae5"
-              ]
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "labels": [
               {
@@ -2242,6 +2744,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "yuchen li",
-    "threatTop": 12
+    "threatTop": 41
   }
 }
