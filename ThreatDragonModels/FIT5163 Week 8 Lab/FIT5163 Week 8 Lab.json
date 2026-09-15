@@ -21,6 +21,365 @@
         "cells": [
           {
             "position": {
+              "x": 1330,
+              "y": 85
+            },
+            "size": {
+              "width": 320,
+              "height": 160
+            },
+            "attrs": {
+              "body": {
+                "strokeWidth": 2,
+                "stroke": "#dc2626"
+              },
+              "label": {
+                "text": "TB2 - Database",
+                "textAnchor": "start",
+                "refX": 15,
+                "refY": 14,
+                "fontSize": 14,
+                "fill": "#b91c1c"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "27695fac-5105-455c-8d2f-1b1f46577584",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB2 - Database",
+              "description": "Treat input as data, never executable SQL. Use a least-privileged database identity.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "containedElements": [
+                "3d23ff13-a051-4075-8936-12bbe8a7e452"
+              ],
+              "crossingFlows": [
+                "1f8d0871-d869-4fdc-8a01-902586824747"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 1330,
+              "y": 290
+            },
+            "size": {
+              "width": 320,
+              "height": 160
+            },
+            "attrs": {
+              "body": {
+                "strokeWidth": 2,
+                "stroke": "#dc2626"
+              },
+              "label": {
+                "text": "TB3 - Medical records",
+                "textAnchor": "start",
+                "refX": 15,
+                "refY": 14,
+                "fontSize": 14,
+                "fill": "#b91c1c"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "82fe8653-c6cd-4b91-8df5-27a80ed60382",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB3 - Medical records",
+              "description": "Patient health records are the critical asset. Authorise every record read and write.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "containedElements": [
+                "bb583a97-6879-4245-9faa-5f18a305231f"
+              ],
+              "crossingFlows": [
+                "eef99239-26c7-441e-914a-ec241650eb1c"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 1330,
+              "y": 520
+            },
+            "size": {
+              "width": 320,
+              "height": 170
+            },
+            "attrs": {
+              "body": {
+                "strokeWidth": 2,
+                "stroke": "#dc2626"
+              },
+              "label": {
+                "text": "TB4 - Third party",
+                "textAnchor": "start",
+                "refX": 15,
+                "refY": 14,
+                "fontSize": 14,
+                "fill": "#b91c1c"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "911160e6-0580-48c6-bee0-020389e39ae5",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "TB4 - Third party",
+              "description": "Phone numbers and minimal appointment reminder details leave the application trust zone.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "containedElements": [
+                "78527651-347f-4671-997b-be5c28ccbb7f"
+              ],
+              "crossingFlows": [
+                "887f5b3f-4bb6-4a4e-8f4a-67b4799e8be8"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 450,
+              "y": 0
+            },
+            "size": {
+              "width": 800,
+              "height": 45
+            },
+            "attrs": {
+              "label": {
+                "text": "MediTrack - Data Flow Diagram",
+                "fontSize": 23,
+                "fill": "#334155"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "zIndex": 0,
+            "id": "31a4a566-ca57-47f0-8930-7f055229b5be",
+            "data": {
+              "type": "tm.Text",
+              "name": "MediTrack - Data Flow Diagram",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 70,
+              "y": 58
+            },
+            "size": {
+              "width": 230,
+              "height": 58
+            },
+            "attrs": {
+              "label": {
+                "text": "INTERNET\nUntrusted clients",
+                "fontSize": 16,
+                "fill": "#334155"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "zIndex": 0,
+            "id": "ca95a610-9d82-4ab8-9f25-6080b195e7d7",
+            "data": {
+              "type": "tm.Text",
+              "name": "INTERNET\nUntrusted clients",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 485,
+              "y": 58
+            },
+            "size": {
+              "width": 310,
+              "height": 58
+            },
+            "attrs": {
+              "label": {
+                "text": "WEB / API SERVER\nAuthentication and session context",
+                "fontSize": 15,
+                "fill": "#334155"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "zIndex": 0,
+            "id": "df2e853f-2669-4bad-98a5-fe18ca2195c2",
+            "data": {
+              "type": "tm.Text",
+              "name": "WEB / API SERVER\nAuthentication and session context",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 890,
+              "y": 58
+            },
+            "size": {
+              "width": 380,
+              "height": 58
+            },
+            "attrs": {
+              "label": {
+                "text": "WEB / API SERVER\nRole + object-authorised operations",
+                "fontSize": 15,
+                "fill": "#334155"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "zIndex": 0,
+            "id": "6e4ed3d2-f1b0-4e25-a791-ba507378e739",
+            "data": {
+              "type": "tm.Text",
+              "name": "WEB / API SERVER\nRole + object-authorised operations",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 455,
+              "y": 950
+            },
+            "size": {
+              "width": 1140,
+              "height": 85
+            },
+            "attrs": {
+              "label": {
+                "text": "TB1: Internet / API boundary     |     TB5: internal privilege boundary (same server)\nTwo arrowheads = requests + responses. SMS uses one outbound notification arrow.\nAuthenticated input still requires validation and authorisation; controls remain proposed.",
+                "fontSize": 15,
+                "fill": "#334155"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "zIndex": 0,
+            "id": "b4b97058-e541-47f6-b14e-9f2dae64d53f",
+            "data": {
+              "type": "tm.Text",
+              "name": "TB1: Internet / API boundary     |     TB5: internal privilege boundary (same server)\nTwo arrowheads = requests + responses. SMS uses one outbound notification arrow.\nAuthenticated input still requires validation and authorisation; controls remain proposed.",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "attrs": {
+              "line": {
+                "stroke": "#dc2626",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": ""
+                },
+                "sourceMarker": {
+                  "name": ""
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 1,
+            "connector": "normal",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB1 - Internet / API",
+              "description": "Untrusted browser requests enter the Web/API server. Authenticate, validate and authorise. Responses cross back to the browser. The full-height line separates the labelled zones and covers all related cross-boundary flows.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "TB1",
+                    "fontSize": 18,
+                    "fill": "#b91c1c"
+                  }
+                },
+                "position": {
+                  "distance": 0,
+                  "offset": 0
+                }
+              }
+            ],
+            "id": "983b3241-a9e7-466d-aa0e-64917ccb554e",
+            "source": {
+              "x": 450,
+              "y": 115
+            },
+            "target": {
+              "x": 450,
+              "y": 925
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "attrs": {
+              "line": {
+                "stroke": "#dc2626",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": ""
+                },
+                "sourceMarker": {
+                  "name": ""
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 1,
+            "connector": "normal",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB5 - Role / object checks",
+              "description": "Logical privilege boundary inside the same Web/API server, not a network segment. Check Patient/Doctor/Admin permissions and object-level access for every action. The full-height line separates the labelled zones and covers all related cross-boundary flows.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "TB5",
+                    "fontSize": 18,
+                    "fill": "#b91c1c"
+                  }
+                },
+                "position": {
+                  "distance": 0,
+                  "offset": 0
+                }
+              }
+            ],
+            "id": "11f3a635-4a6b-429b-8399-fe2247efb472",
+            "source": {
+              "x": 825,
+              "y": 115
+            },
+            "target": {
+              "x": 825,
+              "y": 925
+            },
+            "vertices": []
+          },
+          {
+            "position": {
               "x": 80,
               "y": 140
             },
@@ -30,15 +389,15 @@
             },
             "attrs": {
               "text": {
-                "text": "Patient",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Patient"
               },
               "body": {
+                "fill": "#ffffff",
                 "stroke": "#334155",
                 "strokeWidth": 1.5,
-                "strokeDasharray": "",
-                "fill": "#ffffff"
+                "strokeDasharray": ""
               }
             },
             "visible": true,
@@ -150,15 +509,15 @@
             },
             "attrs": {
               "text": {
-                "text": "Doctor",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Doctor"
               },
               "body": {
+                "fill": "#ffffff",
                 "stroke": "#334155",
                 "strokeWidth": 1.5,
-                "strokeDasharray": "",
-                "fill": "#ffffff"
+                "strokeDasharray": ""
               }
             },
             "visible": true,
@@ -270,15 +629,15 @@
             },
             "attrs": {
               "text": {
-                "text": "Admin",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Admin"
               },
               "body": {
+                "fill": "#ffffff",
                 "stroke": "#334155",
                 "strokeWidth": 1.5,
-                "strokeDasharray": "",
-                "fill": "#ffffff"
+                "strokeDasharray": ""
               }
             },
             "visible": true,
@@ -390,15 +749,15 @@
             },
             "attrs": {
               "text": {
-                "text": "Web / API\nAuthentication\nInput validation",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Web / API\nAuthentication\nInput validation"
               },
               "body": {
+                "fill": "#eff6ff",
                 "stroke": "#334155",
                 "strokeWidth": 1.5,
-                "strokeDasharray": "",
-                "fill": "#eff6ff"
+                "strokeDasharray": ""
               }
             },
             "visible": true,
@@ -517,15 +876,15 @@
             },
             "attrs": {
               "text": {
-                "text": "Web / API\nBooking, records\nand messaging",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Web / API\nBooking, records\nand messaging"
               },
               "body": {
+                "fill": "#eff6ff",
                 "stroke": "#334155",
                 "strokeWidth": 1.5,
-                "strokeDasharray": "",
-                "fill": "#eff6ff"
+                "strokeDasharray": ""
               }
             },
             "visible": true,
@@ -667,9 +1026,9 @@
             },
             "attrs": {
               "text": {
-                "text": "Patients +\nAppointments DB",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Patients +\nAppointments DB"
               },
               "topLine": {
                 "stroke": "#334155",
@@ -809,9 +1168,9 @@
             },
             "attrs": {
               "text": {
-                "text": "Medical records\nstore",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Medical records\nstore"
               },
               "topLine": {
                 "stroke": "#334155",
@@ -937,15 +1296,15 @@
             },
             "attrs": {
               "text": {
-                "text": "SMS provider\n(third party)",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "SMS provider\n(third party)"
               },
               "body": {
+                "fill": "#ffffff",
                 "stroke": "#334155",
                 "strokeWidth": 1.5,
-                "strokeDasharray": "",
-                "fill": "#ffffff"
+                "strokeDasharray": ""
               }
             },
             "visible": true,
@@ -1057,9 +1416,9 @@
             },
             "attrs": {
               "text": {
-                "text": "Session store",
                 "fontSize": 15,
-                "fill": "#172554"
+                "fill": "#172554",
+                "text": "Session store"
               },
               "topLine": {
                 "stroke": "#334155",
@@ -1175,268 +1534,22 @@
             }
           },
           {
-            "id": "983b3241-a9e7-466d-aa0e-64917ccb554e",
-            "shape": "trust-boundary-curve",
-            "zIndex": 1,
-            "width": 200,
-            "height": 100,
-            "connector": "normal",
-            "source": {
-              "x": 450,
-              "y": 115
-            },
-            "target": {
-              "x": 450,
-              "y": 925
-            },
-            "vertices": [],
-            "attrs": {
-              "line": {
-                "stroke": "#dc2626",
-                "strokeWidth": 2.5,
-                "strokeDasharray": "10 5",
-                "sourceMarker": {
-                  "name": ""
-                },
-                "targetMarker": {
-                  "name": ""
-                }
-              }
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "TB1",
-                    "fontSize": 18,
-                    "fill": "#b91c1c"
-                  }
-                },
-                "position": {
-                  "distance": 0,
-                  "offset": 0
-                }
-              }
-            ],
-            "data": {
-              "type": "tm.Boundary",
-              "name": "TB1 - Internet / API",
-              "description": "Untrusted browser requests enter the Web/API server. Authenticate, validate and authorise. Responses cross back to the browser. The full-height line separates the labelled zones and covers all related cross-boundary flows.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "containedElements": [],
-              "crossingFlows": [
-                "4b23c60d-8370-463b-9949-ae6ae3882c5d",
-                "f89d3c84-575d-4c6b-9b36-ffb232cef58a",
-                "40e6f7ca-c104-49e3-8ed6-37abe167e21d"
-              ]
-            }
-          },
-          {
-            "id": "11f3a635-4a6b-429b-8399-fe2247efb472",
-            "shape": "trust-boundary-curve",
-            "zIndex": 1,
-            "width": 200,
-            "height": 100,
-            "connector": "normal",
-            "source": {
-              "x": 825,
-              "y": 115
-            },
-            "target": {
-              "x": 825,
-              "y": 925
-            },
-            "vertices": [],
-            "attrs": {
-              "line": {
-                "stroke": "#dc2626",
-                "strokeWidth": 2.5,
-                "strokeDasharray": "10 5",
-                "sourceMarker": {
-                  "name": ""
-                },
-                "targetMarker": {
-                  "name": ""
-                }
-              }
-            },
-            "labels": [
-              {
-                "attrs": {
-                  "label": {
-                    "text": "TB5",
-                    "fontSize": 18,
-                    "fill": "#b91c1c"
-                  }
-                },
-                "position": {
-                  "distance": 0,
-                  "offset": 0
-                }
-              }
-            ],
-            "data": {
-              "type": "tm.Boundary",
-              "name": "TB5 - Role / object checks",
-              "description": "Logical privilege boundary inside the same Web/API server, not a network segment. Check Patient/Doctor/Admin permissions and object-level access for every action. The full-height line separates the labelled zones and covers all related cross-boundary flows.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "containedElements": [],
-              "crossingFlows": [
-                "66f885ed-8662-4606-b4ea-03fb413b3836"
-              ]
-            }
-          },
-          {
-            "id": "27695fac-5105-455c-8d2f-1b1f46577584",
-            "shape": "trust-boundary-box",
-            "zIndex": -1,
-            "position": {
-              "x": 1330,
-              "y": 85
-            },
-            "size": {
-              "width": 320,
-              "height": 160
-            },
-            "attrs": {
-              "body": {
-                "stroke": "#dc2626",
-                "strokeWidth": 2,
-                "strokeDasharray": "10 5",
-                "fill": "transparent",
-                "fillOpacity": 0
-              },
-              "label": {
-                "text": "TB2 - Database",
-                "fontSize": 14,
-                "fill": "#b91c1c",
-                "refX": 15,
-                "refY": 14,
-                "textAnchor": "start",
-                "textVerticalAnchor": "top"
-              }
-            },
-            "data": {
-              "type": "tm.BoundaryBox",
-              "name": "TB2 - Database",
-              "description": "Treat input as data, never executable SQL. Use a least-privileged database identity.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "containedElements": [
-                "3d23ff13-a051-4075-8936-12bbe8a7e452"
-              ],
-              "crossingFlows": [
-                "1f8d0871-d869-4fdc-8a01-902586824747"
-              ]
-            }
-          },
-          {
-            "id": "82fe8653-c6cd-4b91-8df5-27a80ed60382",
-            "shape": "trust-boundary-box",
-            "zIndex": -1,
-            "position": {
-              "x": 1330,
-              "y": 290
-            },
-            "size": {
-              "width": 320,
-              "height": 160
-            },
-            "attrs": {
-              "body": {
-                "stroke": "#dc2626",
-                "strokeWidth": 2,
-                "strokeDasharray": "10 5",
-                "fill": "transparent",
-                "fillOpacity": 0
-              },
-              "label": {
-                "text": "TB3 - Medical records",
-                "fontSize": 14,
-                "fill": "#b91c1c",
-                "refX": 15,
-                "refY": 14,
-                "textAnchor": "start",
-                "textVerticalAnchor": "top"
-              }
-            },
-            "data": {
-              "type": "tm.BoundaryBox",
-              "name": "TB3 - Medical records",
-              "description": "Patient health records are the critical asset. Authorise every record read and write.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "containedElements": [
-                "bb583a97-6879-4245-9faa-5f18a305231f"
-              ],
-              "crossingFlows": [
-                "eef99239-26c7-441e-914a-ec241650eb1c"
-              ]
-            }
-          },
-          {
-            "id": "911160e6-0580-48c6-bee0-020389e39ae5",
-            "shape": "trust-boundary-box",
-            "zIndex": -1,
-            "position": {
-              "x": 1330,
-              "y": 520
-            },
-            "size": {
-              "width": 320,
-              "height": 170
-            },
-            "attrs": {
-              "body": {
-                "stroke": "#dc2626",
-                "strokeWidth": 2,
-                "strokeDasharray": "10 5",
-                "fill": "transparent",
-                "fillOpacity": 0
-              },
-              "label": {
-                "text": "TB4 - Third party",
-                "fontSize": 14,
-                "fill": "#b91c1c",
-                "refX": 15,
-                "refY": 14,
-                "textAnchor": "start",
-                "textVerticalAnchor": "top"
-              }
-            },
-            "data": {
-              "type": "tm.BoundaryBox",
-              "name": "TB4 - Third party",
-              "description": "Phone numbers and minimal appointment reminder details leave the application trust zone.",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "containedElements": [
-                "78527651-347f-4671-997b-be5c28ccbb7f"
-              ],
-              "crossingFlows": [
-                "887f5b3f-4bb6-4a4e-8f4a-67b4799e8be8"
-              ]
-            }
-          },
-          {
             "shape": "flow",
             "attrs": {
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -1483,9 +1596,7 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [
-                "983b3241-a9e7-466d-aa0e-64917ccb554e"
-              ]
+              "trustBoundaryIds": []
             },
             "labels": [
               {
@@ -1528,17 +1639,17 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -1572,9 +1683,7 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [
-                "983b3241-a9e7-466d-aa0e-64917ccb554e"
-              ]
+              "trustBoundaryIds": []
             },
             "labels": [
               {
@@ -1621,17 +1730,17 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -1651,9 +1760,7 @@
               "isPublicNetwork": true,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": [
-                "983b3241-a9e7-466d-aa0e-64917ccb554e"
-              ]
+              "trustBoundaryIds": []
             },
             "labels": [
               {
@@ -1700,17 +1807,17 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -1744,9 +1851,7 @@
                   "score": ""
                 }
               ],
-              "trustBoundaryIds": [
-                "11f3a635-4a6b-429b-8399-fe2247efb472"
-              ]
+              "trustBoundaryIds": []
             },
             "labels": [
               {
@@ -1784,17 +1889,17 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -1873,17 +1978,17 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -1957,15 +2062,15 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
-                "sourceMarker": {
-                  "name": ""
-                },
                 "targetMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
-                }
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -2044,17 +2149,17 @@
               "line": {
                 "stroke": "#172554",
                 "strokeWidth": 2.5,
-                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block",
+                  "width": 15,
+                  "height": 12
+                },
                 "sourceMarker": {
                   "name": "block",
                   "width": 15,
                   "height": 12
                 },
-                "targetMarker": {
-                  "name": "block",
-                  "width": 15,
-                  "height": 12
-                }
+                "strokeDasharray": ""
               }
             },
             "width": 200,
@@ -2105,131 +2210,6 @@
               "port": "96b7ecf2-8669-48a3-af3c-f7c660a09d4d"
             },
             "vertices": []
-          },
-          {
-            "id": "31a4a566-ca57-47f0-8930-7f055229b5be",
-            "shape": "td-text-block",
-            "zIndex": 0,
-            "position": {
-              "x": 450,
-              "y": 0
-            },
-            "size": {
-              "width": 800,
-              "height": 45
-            },
-            "attrs": {
-              "label": {
-                "text": "MediTrack - Data Flow Diagram",
-                "fontSize": 23,
-                "fill": "#334155"
-              }
-            },
-            "data": {
-              "type": "tm.Text",
-              "name": "MediTrack - Data Flow Diagram",
-              "hasOpenThreats": false
-            }
-          },
-          {
-            "id": "ca95a610-9d82-4ab8-9f25-6080b195e7d7",
-            "shape": "td-text-block",
-            "zIndex": 0,
-            "position": {
-              "x": 70,
-              "y": 58
-            },
-            "size": {
-              "width": 230,
-              "height": 58
-            },
-            "attrs": {
-              "label": {
-                "text": "INTERNET\nUntrusted clients",
-                "fontSize": 16,
-                "fill": "#334155"
-              }
-            },
-            "data": {
-              "type": "tm.Text",
-              "name": "INTERNET\nUntrusted clients",
-              "hasOpenThreats": false
-            }
-          },
-          {
-            "id": "df2e853f-2669-4bad-98a5-fe18ca2195c2",
-            "shape": "td-text-block",
-            "zIndex": 0,
-            "position": {
-              "x": 485,
-              "y": 58
-            },
-            "size": {
-              "width": 310,
-              "height": 58
-            },
-            "attrs": {
-              "label": {
-                "text": "WEB / API SERVER\nAuthentication and session context",
-                "fontSize": 15,
-                "fill": "#334155"
-              }
-            },
-            "data": {
-              "type": "tm.Text",
-              "name": "WEB / API SERVER\nAuthentication and session context",
-              "hasOpenThreats": false
-            }
-          },
-          {
-            "id": "6e4ed3d2-f1b0-4e25-a791-ba507378e739",
-            "shape": "td-text-block",
-            "zIndex": 0,
-            "position": {
-              "x": 890,
-              "y": 58
-            },
-            "size": {
-              "width": 380,
-              "height": 58
-            },
-            "attrs": {
-              "label": {
-                "text": "WEB / API SERVER\nRole + object-authorised operations",
-                "fontSize": 15,
-                "fill": "#334155"
-              }
-            },
-            "data": {
-              "type": "tm.Text",
-              "name": "WEB / API SERVER\nRole + object-authorised operations",
-              "hasOpenThreats": false
-            }
-          },
-          {
-            "id": "b4b97058-e541-47f6-b14e-9f2dae64d53f",
-            "shape": "td-text-block",
-            "zIndex": 0,
-            "position": {
-              "x": 455,
-              "y": 950
-            },
-            "size": {
-              "width": 1140,
-              "height": 85
-            },
-            "attrs": {
-              "label": {
-                "text": "TB1: Internet / API boundary     |     TB5: internal privilege boundary (same server)\nTwo arrowheads = requests + responses. SMS uses one outbound notification arrow.\nAuthenticated input still requires validation and authorisation; controls remain proposed.",
-                "fontSize": 15,
-                "fill": "#334155"
-              }
-            },
-            "data": {
-              "type": "tm.Text",
-              "name": "TB1: Internet / API boundary     |     TB5: internal privilege boundary (same server)\nTwo arrowheads = requests + responses. SMS uses one outbound notification arrow.\nAuthenticated input still requires validation and authorisation; controls remain proposed.",
-              "hasOpenThreats": false
-            }
           }
         ],
         "description": "MediTrack DFD. The two Web/API process symbols decompose one server logically. TB1: Internet/API; TB2: database; TB3: records; TB4: SMS provider; TB5: role and object authorisation inside the API. No direct admin-to-database access is assumed. All threats remain Open; severity estimates require review. Revised: larger bidirectional arrowheads on seven request/response flows; SMS remains unidirectional. Authentication ports are separated to avoid overlapping arrowheads. TB1 and TB5 extend across the full working height and zones are labelled; authentication is not a guarantee that input is safe."
