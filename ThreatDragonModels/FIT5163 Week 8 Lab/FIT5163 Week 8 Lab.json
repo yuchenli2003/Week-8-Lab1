@@ -515,9 +515,9 @@
               },
               "body": {
                 "fill": "#ffffff",
-                "stroke": "#334155",
-                "strokeWidth": 1.5,
-                "strokeDasharray": ""
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
               }
             },
             "visible": true,
@@ -613,9 +613,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "threats": [],
-              "providesAuthentication": false
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "2dd25fd2-0da0-49c5-8c87-a7972150b1da",
+                  "title": "Doctor account impersonation via stolen credentials",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "欺骗",
+                  "description": "An attacker who obtains a Doctor's stolen or phished credentials (e.g. via phishing, credential leak, or weak password) can log in as that Doctor via the Web/API Authentication process, gaining unauthorized access to patient medical records, prescriptions, and appointment data.",
+                  "mitigation": "Enforce multi-factor authentication (MFA) for Doctor accounts; implement account lockout after repeated failed login attempts; monitor for logins from unusual IP addresses or devices; enforce strong password policy.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "1"
+                }
+              ],
+              "providesAuthentication": false,
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2217,6 +2242,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "yuchen li",
-    "threatTop": 10
+    "threatTop": 12
   }
 }
